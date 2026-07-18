@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babtuns Decor | Bespoke Interior Design, Lagos</title>
+
+  <!-- Fonts: Fraunces for the big luxury headlines, Manrope for readable body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ============================================
+       1. SETTINGS — all colors, fonts & spacing live here.
+       Change a value here and it updates the whole site.
+       ============================================ */
+    :root {
+      /* Colors — pulled from the Babtuns Decor logo + their actual project photos
+         (gold monogram, black background, emerald velvet lounge, lilac chaise) */
+      --color-black:        #0b0b0d;   /* main background */
+      --color-black-soft:   #141416;   /* slightly lighter panels */
+      --color-gold:         #c9a463;   /* the logo gold, used for accents/headlines */
+      --color-gold-bright:  #e8caa0;   /* hover states, brighter highlights */
+      --color-emerald:      #1f3d34;   /* from the velvet lounge seating */
+      --color-lilac:        #a893ad;   /* from the chaise lounge photo */
+      --color-ivory:        #f3efe6;   /* main text color on dark background */
+      --color-ivory-dim:    #b8b4ac;   /* secondary / muted text */
+
+      /* Fonts */
+      --font-display: "Fraunces", serif;   /* big elegant headlines */
+      --font-body:    "Manrope", sans-serif; /* everything else */
+
+      /* Spacing — reuse these instead of random pixel values */
+      --space-sm:  1rem;
+      --space-md:  2rem;
+      --space-lg:  4rem;
+      --space-xl:  8rem;
+
+      --max-width: 1200px;
+    }
+
+    /* ============================================
+       2. RESET — basic housekeeping so browsers behave consistently
+       ============================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--color-black);
+      color: var(--color-ivory);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* Reusable eyebrow label (small caps text above headlines) */
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    /* Reusable button style */
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--color-gold);
+      color: var(--color-gold);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: background 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--color-gold);
+      color: var(--color-black);
+    }
+
+    .btn-solid {
+      background: var(--color-gold);
+      color: var(--color-black);
+    }
+
+    .btn-solid:hover {
+      background: var(--color-gold-bright);
+      border-color: var(--color-gold-bright);
+    }
+
+
+    /* ============================================
+       3. NAVIGATION
+       ============================================ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(11, 11, 13, 0.85);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(201, 164, 99, 0.15);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem var(--space-md);
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--color-ivory);
+      font-weight: 500;
+    }
+
+    .nav-logo span {
+      color: var(--color-gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: var(--space-lg);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-gold);
+    }
+
+    /* Hide nav links on small screens to keep it simple (no hamburger menu needed for a one-pager) */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+
+
+    /* ============================================
+       4. HERO SECTION
+       ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: var(--space-md);
+
+      /* Subtle radial glow behind the monogram, like gallery lighting */
+      background: radial-gradient(circle at 50% 40%, rgba(201, 164, 99, 0.08), transparent 60%),
+                  var(--color-black);
+    }
+
+    .hero-monogram {
+      width: 90px;
+      height: 90px;
+      border: 1px solid var(--color-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--color-gold);
+      margin-bottom: var(--space-md);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+      max-width: 900px;
+      animation: fadeIn 1.4s ease;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--color-gold);
+    }
+
+    .hero p {
+      margin-top: var(--space-sm);
+      color: var(--color-ivory-dim);
+      font-size: 1.05rem;
+      max-width: 500px;
+      animation: fadeIn 1.6s ease;
+    }
+
+    .hero-location {
+      margin-top: var(--space-sm);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+    }
+
+    .hero-cta {
+      margin-top: var(--space-lg);
+      display: flex;
+      gap: var(--space-sm);
+      animation: fadeIn 1.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+
+    /* ============================================
+       5. SIGNATURE STRIP — "Precision in every tile"
+       A scrolling row of material textures (marble, brass, oak, velvet)
+       This is the one "memorable" visual element of the page — it nods
+       directly to Babtuns' own Instagram caption about craftsmanship.
+       ============================================ */
+    .finish-strip {
+      border-top: 1px solid rgba(201, 164, 99, 0.15);
+      border-bottom: 1px solid rgba(201, 164, 99, 0.15);
+      padding: var(--space-lg) 0;
+      overflow: hidden;
+    }
+
+    .finish-strip-label {
+      text-align: center;
+      margin-bottom: var(--space-md);
+    }
+
+    .finish-strip-label h3 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.4rem;
+      color: var(--color-ivory);
+    }
+
+    .finish-track {
+      display: flex;
+      gap: var(--space-md);
+      width: max-content;
+      animation: scrollTrack 30s linear infinite;
+    }
+
+    /* Each "swatch" is a small CSS gradient standing in for a material —
+       no stock photos needed, and it's easy to swap the gradient values
+       for real photos later if you get proper site photography. */
+    .swatch {
+      width: 160px;
+      height: 160px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-sm);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-ivory);
+    }
+
+    .swatch-marble  { background: linear-gradient(135deg, #d8d3c8, #a9a396, #d8d3c8); color: #2a2a2a; }
+    .swatch-brass   { background: linear-gradient(135deg, #b98a4a, #e8caa0, #8a6530); }
+    .swatch-emerald { background: linear-gradient(135deg, #14261f, #2c5443, #14261f); }
+    .swatch-oak     { background: linear-gradient(135deg, #5a4632, #86694a, #5a4632); }
+    .swatch-lilac   { background: linear-gradient(135deg, #6f5f78, #a893ad, #6f5f78); }
+
+    @keyframes scrollTrack {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+
+    /* ============================================
+       6. SECTION HEADINGS (shared by Services / Portfolio / Process)
+       ============================================ */
+    section {
+      padding: var(--space-xl) 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    .section-heading h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    .section-heading p {
+      color: var(--color-ivory-dim);
+      margin-top: var(--space-sm);
+    }
+
+
+    /* ============================================
+       7. SERVICES
+       ============================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .service-card {
+      background: var(--color-black-soft);
+      border: 1px solid rgba(201, 164, 99, 0.15);
+      padding: var(--space-lg) var(--space-md);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-6px);
+    }
+
+    .service-card .icon {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--color-gold);
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.3rem;
+      margin-bottom: var(--space-sm);
+    }
+
+    .service-card p {
+      color: var(--color-ivory-dim);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* ============================================
+       8. PORTFOLIO
+       Mood-board style cards representing project types.
+       Swap the .portfolio-img background gradients for real project
+       photos whenever the client sends over final images.
+       ============================================ */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .portfolio-card {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+
+    .portfolio-card:hover .portfolio-img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-1 .portfolio-img { background: linear-gradient(160deg, #1f3d34, #0b0b0d 70%); }
+    .portfolio-2 .portfolio-img { background: linear-gradient(160deg, #3a3242, #0b0b0d 70%); }
+    .portfolio-3 .portfolio-img { background: linear-gradient(160deg, #2a2320, #0b0b0d 70%); }
+
+    .portfolio-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: var(--space-md);
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+    }
+
+    .portfolio-caption .eyebrow { margin-bottom: 0.3rem; }
+
+    .portfolio-caption h4 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: 900px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* ============================================
+       9. PROCESS (how a project moves from enquiry to finish)
+       ============================================ */
+    .process-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      counter-reset: step;
+    }
+
+    .process-step {
+      border-top: 1px solid var(--color-gold);
+      padding-top: var(--space-sm);
+    }
+
+    .process-step .step-number {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--color-gold);
+      display: block;
+      margin-bottom: var(--space-sm);
+    }
+
+    .process-step h4 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step p {
+      color: var(--color-ivory-dim);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .process-list { grid-template-columns: 1fr; }
+    }
+
+
+    /* ============================================
+       10. CONTACT / CTA
+       ============================================ */
+    .contact {
+      text-align: center;
+      background: var(--color-black-soft);
+      border-top: 1px solid rgba(201, 164, 99, 0.15);
+    }
+
+    .contact h2 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      max-width: 700px;
+      margin: 0 auto var(--space-sm);
+    }
+
+    .contact p {
+      color: var(--color-ivory-dim);
+      margin-bottom: var(--space-md);
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+
+    /* ============================================
+       11. FOOTER
+       ============================================ */
+    footer {
+      padding: var(--space-lg) 0 var(--space-md);
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-ivory-dim);
+    }
+
+    footer a:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-sm);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">BABTUNS <span>DECOR</span></div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================
+       HERO
+       ============================================ -->
+  <section class="hero">
+    <div class="hero-monogram">B</div>
+
+    <h1>A touch of <em>classic</em> finishing, <br> for every space you live in</h1>
+
+    <p>Redefining luxury through the art of comfort and class — bespoke interiors tailored to your lifestyle.</p>
+
+    <div class="hero-location">Lagos &nbsp;·&nbsp; Operating Globally</div>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-solid">Start Your Project</a>
+      <a href="#portfolio" class="btn">View Our Work</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       SIGNATURE STRIP
+       ============================================ -->
+  <div class="finish-strip">
+    <div class="finish-strip-label">
+      <h3>"Precision in every tile. Perfection in every detail."</h3>
+    </div>
+
+    <!-- The track is duplicated once so the loop animation is seamless -->
+    <div class="finish-track">
+      <div class="swatch swatch-marble">Marble</div>
+      <div class="swatch swatch-brass">Brass</div>
+      <div class="swatch swatch-emerald">Velvet</div>
+      <div class="swatch swatch-oak">Oak</div>
+      <div class="swatch swatch-lilac">Lilac Suede</div>
+
+      <!-- duplicate set for the infinite scroll effect -->
+      <div class="swatch swatch-marble">Marble</div>
+      <div class="swatch swatch-brass">Brass</div>
+      <div class="swatch swatch-emerald">Velvet</div>
+      <div class="swatch swatch-oak">Oak</div>
+      <div class="swatch swatch-lilac">Lilac Suede</div>
+    </div>
+  </div>
+
+
+  <!-- ============================================
+       SERVICES
+       ============================================ -->
+  <section id="services" class="container">
+    <div class="section-heading">
+      <div class="eyebrow">What We Do</div>
+      <h2>Interiors, built with intention</h2>
+      <p>From first sketch to final finish, every detail is considered.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">01</div>
+        <h3>Residential Interiors</h3>
+        <p>Living rooms, bedrooms and full-home concepts designed around how you actually live — not just how a room photographs.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">02</div>
+        <h3>Commercial & Event Spaces</h3>
+        <p>Lounges, showrooms and statement spaces with the kind of lighting and detail that photographs itself.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon">03</div>
+        <h3>Renovation & Finishing</h3>
+        <p>Tiling, carpentry and finishing work carried out with the same precision our craftsmen bring to every site.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       PORTFOLIO
+       Swap these three cards for real project photos once available —
+       just replace the gradient in .portfolio-1/2/3 with a background-image.
+       ============================================ -->
+  <section id="portfolio" class="container">
+    <div class="section-heading">
+      <div class="eyebrow">Selected Work</div>
+      <h2>A few rooms we're proud of</h2>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card portfolio-1">
+        <div class="portfolio-img"></div>
+        <div class="portfolio-caption">
+          <div class="eyebrow">Event Space</div>
+          <h4>The Emerald Lounge</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card portfolio-2">
+        <div class="portfolio-img"></div>
+        <div class="portfolio-caption">
+          <div class="eyebrow">Residential</div>
+          <h4>Glass & Shadow Living</h4>
+        </div>
+      </div>
+
+      <div class="portfolio-card portfolio-3">
+        <div class="portfolio-img"></div>
+        <div class="portfolio-caption">
+          <div class="eyebrow">Renovation</div>
+          <h4>The Long Finish</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       PROCESS
+       ============================================ -->
+  <section id="process" class="container">
+    <div class="section-heading">
+      <div class="eyebrow">How It Works</div>
+      <h2>From enquiry to final finish</h2>
+    </div>
+
+    <div class="process-list">
+      <div class="process-step">
+        <span class="step-number">I</span>
+        <h4>Consultation</h4>
+        <p>We learn your space, your budget and how you want to live in it.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="step-number">II</span>
+        <h4>Concept & Design</h4>
+        <p>A tailored concept — materials, layout and mood — built around your brief.</p>
+      </div>
+
+      <div class="process-step">
+        <span class="step-number">III</span>
+        <h4>Execution & Finishing</h4>
+        <p>Our craftsmen bring it to life, with the same precision on-site as on paper.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       CONTACT
+       ============================================ -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Let's design your next space</h2>
+      <p>Tell us about your project and we'll get back to you within 24 hours.</p>
+
+      <div class="contact-buttons">
+        <!-- Replace this number with the real WhatsApp business number -->
+        <a href="https://wa.me/2340000000000" class="btn btn-solid" target="_blank">Message on WhatsApp</a>
+        <a href="mailto:hello@babtunsdecor.com" class="btn">Email Us</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/babtuns_decor_" target="_blank">Instagram</a>
+      <a href="https://wa.me/2340000000000" target="_blank">WhatsApp</a>
+    </div>
+    <p>Babtuns Decor &nbsp;·&nbsp; BN: 7259938 &nbsp;·&nbsp; Lagos, Nigeria</p>
+  </footer>
+
+</body>
+</html>
